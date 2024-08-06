@@ -1,0 +1,28 @@
+// 2. Write a simple PHP class which displays an introductory message like "Hello All, I am Scott", where "Scott" is an argument value of the method within the class. Go to the editor 
+<?php
+    class user_message {
+        public $message = "Hello I'm ";
+        public function display($name) {
+            return $this->message.$name;
+        }
+    }
+    $message = New user_message;
+    echo $message->display("Scott");
+?>
+<?php
+    session_start();
+?>
+<div class="login-form">
+    <form method="post">
+        <span>Email:</span> <input type="email" name="email" require>
+        <span>Password:<span> <input type="password" name="pass" require>
+        <input type="submit" name="login" style="font-size: 1.1em;margin-left: 0px;background-color: #659b4c;" value="Se connecter">
+    </form>
+        <?php
+        if (isset($_POST['login'])) {
+            $_SESSION['email'] = $_POST['email'];
+            $_SESSION['pass'] = $_POST['pass'];
+            header("location: showSession.php");
+        } 
+        ?>
+</div>
